@@ -2,7 +2,7 @@ Shader "Custom/NeonPlanet"
 {
     Properties
     {
-        [HDR]_MainColor ("Main Color (HDR)", Color) = (0, 1, 1, 1) // Cyan
+        [HDR] _MainColor ("Main Color (HDR)", Color) = (0, 1, 1, 1) // Cyan
         _Radius ("Radius", Float) = 0.45
         _RingThickness ("Ring Thickness", Float) = 0.05
         _FillOpacity ("Fill Opacity", Float) = 0.1
