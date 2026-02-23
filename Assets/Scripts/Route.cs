@@ -4,8 +4,8 @@ using UnityEngine;
 public class Route : MonoBehaviour
 {
     // Public properties to read the planets
-    public Planet StartPlanet { get; private set; }
-    public Planet EndPlanet { get; private set; }
+    public GameObject StartPlanet { get; private set; }
+    public GameObject EndPlanet { get; private set; }
     
     // Publicly readable distance for gameplay logic
     public float Distance { get; private set; }
@@ -22,7 +22,7 @@ public class Route : MonoBehaviour
     /// </summary>
     /// <param name="a">The starting planet.</param>
     /// <param name="b">The ending planet.</param>
-    public void Initialize(Planet a, Planet b)
+    public void Initialize(GameObject a, GameObject b)
     {
         StartPlanet = a;
         EndPlanet = b;

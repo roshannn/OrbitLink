@@ -10,6 +10,8 @@ public class GalaxyManager : MonoBehaviour
     [Tooltip("Global time scale for the simulation.")]
     [SerializeField] private float _timeScale = 1.0f;
 
+    [SerializeField]private GameObject sun;
+
     // Private tracker for the deterministic time
     private float _gameTime = 0f;
 
@@ -33,16 +35,16 @@ public class GalaxyManager : MonoBehaviour
         }
     }
     #region delete this
-    public (Planet, Planet) ReturnPlanets()
+    public (GameObject, GameObject) ReturnPlanet1()
     {
-        return (_planets[0], _planets[1]);
+        return (_planets[0].gameObject, sun);
     }
-    public (Planet, Planet) ReturnPlanets2() {
-        return (_planets[1], _planets[2]);
+    public (GameObject, GameObject) ReturnPlanet2() {
+        return (_planets[1].gameObject, sun);
     }
 
-    public (Planet, Planet) ReturnPlanets3() {
-        return (_planets[2], _planets[0]);
+    public (GameObject, GameObject) ReturnPlanet3() {
+        return (_planets[2].gameObject, sun);
     }
 
     #endregion

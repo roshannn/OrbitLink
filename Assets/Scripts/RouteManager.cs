@@ -18,11 +18,11 @@ public class RouteManager : MonoBehaviour
 
     private void Start()
     {
-        var (a, b) = GalaxyManager.ReturnPlanets();
+        var (a, b) = GalaxyManager.ReturnPlanet1();
         CreateRoute(a, b);
-        var (c, d) = GalaxyManager.ReturnPlanets2();
+        var (c, d) = GalaxyManager.ReturnPlanet2();
         CreateRoute(c, d); 
-        var (e, f) = GalaxyManager.ReturnPlanets3();
+        var (e, f) = GalaxyManager.ReturnPlanet3();
         CreateRoute(e, f);
     }
     #endregion
@@ -30,7 +30,7 @@ public class RouteManager : MonoBehaviour
     /// Creates a new route between two planets if valid and unique.
     /// </summary>
     /// <returns>The created Route, or null if failed.</returns>
-    public Route CreateRoute(Planet a, Planet b)
+    public Route CreateRoute(GameObject a, GameObject b)
     {
         // 1. Basic validation
         if (a == null || b == null) return null;
@@ -86,7 +86,7 @@ public class RouteManager : MonoBehaviour
     /// <summary>
     /// Checks if a route already exists between two planets.
     /// </summary>
-    private bool DoesRouteExist(Planet a, Planet b)
+    private bool DoesRouteExist(GameObject a, GameObject b)
     {
         foreach (Route r in _activeRoutes)
         {

@@ -80,15 +80,20 @@ Shader "Custom/NeonChevronStream"
                 float dashSignal = frac(dashPos);
                 float dashMask = step(0.5, dashSignal); // 0 or 1
 
-                // --- 2. TUBE FADE (The "Ribbon Fix") ---
-                // We calculate a soft mask for the top and bottom edges
-                // to make it look cylindrical instead of flat.
+                // --- 2. TUBE FADE (The "Tube Profile") ---
+                // We calculate a soft mask relative to the center line.
+                // This ensures the beam width controls the actual visible thickness.
                 
-                // Calculate safe zone based on BeamWidth
-                float edgeSize = (1.0 - _BeamWidth) * 0.5;
+                // Distance from center (0 to 0.5)
+                float dist = abs(uv.y - 0.5);
                 
-                // Smoothly fade the alpha from the edge inward
-                float vMask = smoothstep(0.0, edgeSize, uv.y) * smoothstep(1.0, 1.0 - edgeSize, uv.y);
+                // Half the beam width
+                float halfWidth = _BeamWidth * 0.5;
+                
+                // Smoothly fade out as we approach the beam edge.
+                // 1.0 inside the core (75% of width), fading to 0.0 at the edge.
+                // +0.0001 ensures we don't divide by zero if width is 0.
+                float vMask = 1.0 - smoothstep(halfWidth * 0.75, halfWidth + 0.0001, dist);
 
                 // --- 3. COMBINE ---
                 half4 col = _BaseColor;
@@ -99,4 +104,4 @@ Shader "Custom/NeonChevronStream"
             ENDHLSL
         }
     }
-}
+}   

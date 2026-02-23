@@ -4,10 +4,10 @@ public class Planet : MonoBehaviour
 {
     [Header("Orbit Settings")]
     [Tooltip("Radius of the orbit in world units.")]
-    [SerializeField, Range(1f, 20f)] private float _orbitRadius = 5f;
+    [SerializeField] private float _orbitRadius = 5f;
 
     [Tooltip("Time in seconds to complete one full orbit.")]
-    [SerializeField, Range(1f, 60f)] private float _orbitPeriod = 10f;
+    [SerializeField] private float _orbitPeriod = 10f;
 
     [Tooltip("Starting angle in degrees (0 = Right, 90 = Up).")]
     [SerializeField, Range(0f, 360f)] private float _startAngle = 0f;
