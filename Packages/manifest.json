@@ -1,5 +1,6 @@
 {
   "dependencies": {
+    "com.antigravity.ide": "https://github.com/humza-13/Antigravity-Unity.git",
     "com.unity.addressables": "2.7.6",
     "com.unity.addressables.android": "1.0.9",
     "com.unity.ai.navigation": "2.0.9",
